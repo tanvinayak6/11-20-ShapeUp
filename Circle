@@ -1,0 +1,57 @@
+import java.lang.Math;
+public class Circle
+{
+  Point center = new Point();
+  double radius;
+  //Add in 2nd parameter later
+  public Circle(Point p, double r)
+  {
+    center = p;
+    radius = r;
+  }
+  public double getRadius()
+  {
+    return radius;
+  }
+  public double area()
+  {
+    return Math.PI*(Math.pow(radius,2));
+  }
+  public double circumference()
+  {
+    return 2*Math.PI*radius;
+  }
+  public double diameter()
+  {
+    return 2*radius;
+  }
+  public String toString()
+  {
+    return "("+center.x+","+center.y+"), " +radius;
+  }
+  public Circle(Point startPoint, Point endPoint)
+  {
+    center=startPoint;
+    radius=center.distance(endPoint);
+  }
+  public void changeRadius(double add)
+  {
+    radius+=add;
+  }
+  public Circle()
+  {
+    radius=0.0;
+    center.x=0;
+    center.y=0;
+  }
+  public void translate(int a, int b)
+  {
+    center.x+=a;
+    center.y+=b;
+  }
+  
+}
+    
+  
+    
+  
