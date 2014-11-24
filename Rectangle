@@ -1,0 +1,80 @@
+public class Rectangle
+{
+  Point origin= new Point();
+  int height;
+  int width;
+  public Rectangle()
+  {
+    origin.x=0;
+    origin.y=0;
+    width=0;
+    height=0;
+  }
+  public Rectangle(Point bottomLeft, Point topRight)
+  {
+    origin=bottomLeft;
+    height=topRight.y-origin.y;
+    width=topRight.x-origin.x;
+  }
+  public Rectangle(Point bottomLeft, int a, int b)
+  {
+    origin=bottomLeft;
+    width=a;
+    height=b;
+  }
+  public Point getBottomLeft()
+  {
+    return origin;
+  }
+  public Point getTopRight()
+  {
+    Point topRight=new Point();
+    topRight.x=origin.x+width;
+    topRight.y=origin.y+height;
+    return topRight;
+  }
+  public int getHeight()
+  {
+    return height;
+  }
+  public int getWidth()
+  {
+    return width;
+  }
+  public double area()
+  {
+    return height*width;
+  }
+  public double diagonal()
+  {
+    return origin.distance(this.getTopRight());
+  }
+  public int perimeter()
+  {
+    return 2*width+2*height;
+  }
+  public boolean isSquare()
+  {
+    if(height==width)
+    {
+      return true;
+    }
+    return false;
+  }
+  public String toString()
+  {
+    String s="[ ("+origin.x+","+origin.y+"), ("+this.getTopRight().x+","+this.getTopRight().y+") ]";
+    return s;
+  }
+  public void translate(int dx, int dy)
+  {
+    this.getTopRight().x+=dx;
+    this.getTopRight().y+=dy;
+  }
+  public void scale(int dx, int dy)
+  {
+    width+=dx;
+    height+=dy;
+  }
+}
+  
